@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0A0A0F;
+  --bg-secondary: #111118;
+  --bg-tertiary: #1A1A24;
+  --bg-card: #22222F;
+  --border: #2D2D3F;
+  --accent: #6C63FF;
+  --accent-light: #8B83FF;
+  --text-primary: #F0F0F5;
+  --text-secondary: #9898A8;
+  --text-muted: #5A5A6E;
+  --success: #48BB78;
+  --danger: #FC8181;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Input base styles */
+input, textarea, select {
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+/* Animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Noise texture overlay */
+.noise-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* Gradient mesh background */
+.gradient-mesh {
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(108, 99, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(78, 205, 196, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 60% 80%, rgba(108, 99, 255, 0.05) 0%, transparent 60%),
+    #0A0A0F;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(26, 26, 36, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(45, 45, 63, 0.8);
+}
+
+/* Glow effects */
+.glow-accent {
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.3);
+}
+
+.glow-success {
+  box-shadow: 0 0 20px rgba(72, 187, 120, 0.3);
+}
+
+/* Monaco editor override */
+.monaco-editor-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Toast notification styles */
+.toast-enter {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* User cursor label in editor */
+.cursor-label {
+  position: absolute;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+  top: -16px;
+  left: 0;
+  pointer-events: none;
+  z-index: 100;
+}
