@@ -15,4 +15,4 @@ Authentication uses JWTs. On login the server signs a token; the client stores i
 **Frontend** — React (Vite), Tailwind CSS, Monaco Editor, Socket.io client  
 **Backend** — Node.js, Express, Socket.io  
 **Auth** — JWT + bcrypt  
-**Storage** — In-memory (structured for a straight swap to MongoDB)
+**Storage** — In-memory
